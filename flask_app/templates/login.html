@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    <form method="post">
+        {{ form.csrf_token }}  <!-- CSRF токен будет здесь -->
+
+        <p>
+            <label for="username">Username</label>
+            {{ form.username(size=20) }}
+            {% if form.username.errors %}
+                <span style="color: red;">{{ form.username.errors[0] }}</span>
+            {% endif %}
+        </p>
+
+        <p>
+            <label for="password">Password</label>
+            {{ form.password(size=20) }}
+            {% if form.password.errors %}
+                <span style="color: red;">{{ form.password.errors[0] }}</span>
+            {% endif %}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+
+</body>
+</html>

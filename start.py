@@ -1,0 +1,3 @@
+# запуск
+
+# python main.py
